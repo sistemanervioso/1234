@@ -1,0 +1,716 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --dorado: #d4af37; /* Dorado principal */
+  --negro: #000;    /* Negro principal */
+  --blanco: #fff;
+  --gris-claro: #f7f7f7;
+  --gris-medio: #e0e0e0;
+  --gris-oscuro: #333;
+  --rojo: #c40000; /* Rojo para acentos como el "Colegio" */
+
+  /* Nuevas variables para bordes y sombras realzadas */
+  --borde-dorado-grueso: 4px solid var(--dorado);
+  --borde-negro-grueso: 4px solid var(--negro);
+  --sombra-elegante: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra más suave y extendida */
+  --sombra-profunda: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra para hover o elementos clave */
+
+  /* Fuentes */
+  --fuente-titulos: 'Playfair Display', serif;
+  --fuente-cuerpo: 'Montserrat', sans-serif;
+}
+
+/* Base y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro);
+  line-height: 1.6;
+}
+
+/* Contenedor principal del cuerpo */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto; /* Más espacio arriba y abajo */
+  padding: 3rem; /* Padding interno generoso */
+  background-color: var(--blanco);
+  border: 1px solid var(--gris-medio); /* Borde sutil */
+  box-shadow: var(--sombra-elegante); /* Sombra elegante */
+  border-radius: 10px; /* Bordes redondeados para el contenedor principal */
+}
+
+/* Nuevo: Clase para que el main contenido se superponga */
+.main-content-overlap {
+    margin-top: -80px; /* Ajusta este valor para controlar cuánto se superpone el main con el header */
+    position: relative; /* Necesario para el z-index */
+    z-index: 50; /* Para que el main contenido esté por encima de la sombra del header */
+}
+
+
+/* Encabezado - Wrapper del boceto */
+.header-card-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto 0 auto; /* Centrar y separar del top de la página */
+  background-color: var(--blanco); /* Fondo blanco de la "tarjeta" */
+  border-radius: 15px; /* Bordes redondeados grandes */
+  box-shadow: var(--sombra-profunda); /* Sombra pronunciada para que "flote" */
+  overflow: hidden; /* Para contener los bordes internos */
+  position: relative; /* Para el z-index si es sticky */
+  z-index: 1000; /* Asegurar que esté por encima de todo */
+}
+
+.header-content-inner {
+    padding: 1rem; /* Padding dentro de la tarjeta blanca */
+}
+
+/* Franja superior negra (logo y nav) */
+.header-top-strip {
+    background-color: var(--negro); /* Fondo negro */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem; /* Padding horizontal y vertical */
+    border-radius: 10px; /* Bordes redondeados para la franja negra */
+}
+
+.logo {
+  width: 70px; /* Tamaño del logo según el boceto */
+  /* Borde dorado y resplandor para el logo */
+  border: 3px solid var(--dorado);
+  border-radius: 50%;
+  padding: 5px;
+  background-color: var(--blanco);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Franja de navegación blanca */
+.header-nav-strip {
+    background-color: var(--blanco); /* Fondo blanco para la barra de navegación */
+    border-radius: 5px; /* Bordes redondeados para la barra blanca */
+    margin-left: auto; /* Empuja la navegación a la derecha */
+    padding: 0.5rem; /* Padding interno para los enlaces */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para la barra blanca */
+}
+
+.nav-horizontal {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Espacio entre enlaces */
+  justify-content: center;
+}
+
+.nav-horizontal a {
+  color: var(--negro); /* Texto negro por defecto en la barra blanca */
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem; /* Padding para los enlaces */
+  transition: all 0.3s ease;
+  border-radius: 5px; /* Bordes redondeados para los enlaces */
+}
+
+/* Estilo para el enlace activo (Inicio) y hover */
+.nav-horizontal a.activo {
+    background-color: var(--dorado); /* Fondo dorado sólido para el activo */
+    color: var(--negro); /* Texto negro para el activo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para el activo */
+}
+
+.nav-horizontal a:hover {
+    background-color: var(--dorado); /* Fondo dorado sólido al pasar el ratón */
+    color: var(--negro); /* Texto negro al pasar el ratón */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Pequeña elevación al pasar el ratón */
+}
+
+/* Franja del título */
+.header-title-strip {
+    background-color: var(--negro); /* Fondo negro para el título */
+    text-align: center;
+    padding: 1rem 2rem; /* Padding para el título */
+    margin-top: 1rem; /* Margen superior para separarlo de la franja de nav */
+    border-radius: 10px; /* Bordes redondeados para la franja del título */
+}
+
+.titulo-encabezado {
+  font-family: var(--fuente-titulos);
+  color: var(--dorado);
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+}
+
+/* Botones */
+.btn-principal,
+.btn-secundario {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn-principal {
+  background-color: var(--dorado);
+  color: var(--negro);
+  border-color: var(--negro);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-principal:hover {
+  background-color: var(--negro);
+  color: var(--dorado);
+  border-color: var(--dorado);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  background-color: var(--negro);
+  color: var(--dorado);
+  border-color: var(--dorado);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secundario:hover {
+  background-color: var(--dorado);
+  color: var(--negro);
+  border-color: var(--negro);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Secciones Generales */
+.seccion-centrada {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+.seccion-centrada::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--dorado);
+  border-radius: 5px;
+}
+
+/* Ajustes para la sección Bienvenida con imagen de fondo */
+#bienvenida {
+  background-image: url('img/encabezado.png'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: var(--blanco);
+  padding: 8rem 2rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 0; /* Asegurar que no haya margen superior propio */
+}
+
+#bienvenida::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+#bienvenida > * {
+  position: relative;
+  z-index: 2;
+}
+
+#bienvenida h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--dorado);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+#bienvenida p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  color: var(--blanco);
+}
+
+#bienvenida .btn-principal {
+  color: var(--negro);
+  background-color: var(--dorado);
+  border-color: var(--negro);
+}
+#bienvenida .btn-principal:hover {
+  color: var(--dorado);
+  background-color: var(--negro);
+  border-color: var(--dorado);
+}
+#bienvenida::after {
+  bottom: 2rem;
+  background-color: var(--dorado);
+}
+
+/* Resto de Secciones (mantienen el estilo impactante anterior) */
+
+#noticias h2,
+#sedes h2,
+#enlaces-rapidos h2,
+.titulo-enlaces-interes {
+  font-family: var(--fuente-titulos);
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--rojo);
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.noticias-grid,
+.sedes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.noticia,
+.sede {
+  background-color: var(--blanco);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: var(--sombra-elegante);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  border: 2px solid var(--gris-medio);
+}
+
+.tarjeta-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--sombra-profunda);
+  border-color: var(--dorado);
+}
+
+.noticia img,
+.sede img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.noticia img:hover,
+.sede img:hover {
+  transform: scale(1.05);
+}
+
+.contenido-noticia,
+.sede {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.contenido-noticia h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--negro);
+}
+
+.sede h4 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  margin: 1.2rem 0 0.8rem;
+  color: var(--negro);
+}
+
+footer {
+  background-color: var(--negro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  border-top: var(--borde-dorado-grueso);
+  letter-spacing: 0.5px;
+}
+
+.centrado {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Sección de Enlaces Rápidos */
+#enlaces-rapidos {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+#enlaces-rapidos::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--dorado);
+  border-radius: 5px;
+}
+
+.enlaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  justify-content: center;
+}
+
+.enlace-card {
+  background-color: var(--blanco);
+  border-radius: 10px;
+  box-shadow: var(--sombra-elegante);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  min-height: 150px;
+  border: 2px solid var(--gris-medio);
+}
+
+.enlace-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-profunda);
+  border-color: var(--negro);
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.enlace-card:hover h4 {
+    color: var(--dorado);
+}
+
+.enlace-card:hover p {
+    color: var(--blanco);
+}
+
+.enlace-card h4 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.6rem;
+  color: var(--negro);
+  transition: color 0.4s ease;
+}
+
+.enlace-card p {
+  color: var(--gris-oscuro);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: color 0.4s ease;
+}
+
+.enlace-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--dorado);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid var(--negro);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.enlace-card:hover .enlace-icon {
+    background-color: var(--blanco);
+    border-color: var(--dorado);
+}
+
+
+/* Sección de Enlaces de Interés */
+#enlaces-interes {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+#enlaces-interes::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--dorado);
+  border-radius: 5px;
+}
+
+.titulo-enlaces-interes {
+  color: var(--negro);
+  font-size: 2.8rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  font-family: var(--fuente-titulos);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.subtitulo-enlaces-interes {
+  color: var(--gris-oscuro);
+  font-size: 1.2rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  font-family: var(--fuente-cuerpo);
+}
+
+.logos-interes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.5rem;
+}
+
+.logo-interes-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  max-width: 200px;
+  height: 120px;
+  transition: all 0.4s ease;
+  border: 2px solid var(--gris-medio);
+  border-radius: 10px;
+  background-color: var(--blanco);
+  box-shadow: var(--sombra-elegante);
+}
+
+.logo-interes-item img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.logo-interes-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--dorado);
+  box-shadow: var(--sombra-profunda);
+}
+
+.logo-interes-item:hover img {
+    filter: grayscale(0%);
+}
+
+
+/* Media Queries para diseño responsivo impactante */
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem;
+  }
+  .titulo-encabezado {
+    font-size: 2.2rem;
+  }
+  .nav-horizontal {
+    gap: 1.5rem;
+  }
+  #noticias h2,
+  #sedes h2,
+  #bienvenida h2,
+  #enlaces-rapidos h2,
+  .titulo-enlaces-interes {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1rem auto;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Ajustes para el nuevo encabezado en móviles */
+  .header-card-wrapper {
+      margin: 1rem auto 0 auto;
+      border-radius: 10px; /* Menos redondeado en móviles */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más ligera */
+  }
+
+  .header-content-inner {
+      padding: 0.8rem;
+  }
+
+  .header-top-strip {
+      flex-direction: column; /* Logo y nav apilados */
+      padding: 0.5rem 1rem;
+  }
+
+  .logo {
+      margin-bottom: 0.8rem; /* Espacio debajo del logo */
+  }
+
+  .header-nav-strip {
+      width: 100%; /* La barra blanca ocupa todo el ancho */
+      margin-left: 0;
+      padding: 0.3rem;
+  }
+
+  .nav-horizontal {
+      flex-direction: column; /* Enlaces de nav apilados */
+      gap: 0.3rem;
+  }
+
+  .nav-horizontal a {
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 1rem;
+  }
+
+  .header-title-strip {
+      padding: 0.8rem 1rem;
+      margin-top: 0.8rem;
+  }
+
+  .titulo-encabezado {
+      font-size: 1.8rem;
+  }
+
+  .main-content-overlap {
+      margin-top: -50px; /* Menos superposición en móviles */
+  }
+
+
+  #bienvenida {
+    padding: 6rem 1rem; /* Menos padding en móviles */
+    min-height: 400px;
+  }
+
+  #bienvenida h2 {
+    font-size: 2.5rem; /* Ajustar tamaño de título en móviles */
+  }
+
+  #bienvenida p {
+    font-size: 1.1rem; /* Ajustar texto en móviles */
+  }
+
+  #bienvenida::after {
+    bottom: 1rem; /* Ajustar posición de la línea en móviles */
+  }
+
+  .btn-principal,
+  .btn-secundario {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .seccion-centrada {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .seccion-centrada::after {
+    width: 80px;
+    height: 2px;
+  }
+
+  #noticias h2,
+  #sedes h2,
+  #bienvenida h2,
+  #enlaces-rapidos h2,
+  .titulo-enlaces-interes {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitulo-enlaces-interes {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .noticia,
+  .sede,
+  .enlace-card,
+  .logo-interes-item {
+    max-width: 100%;
+  }
+
+  .noticia img,
+  .sede img {
+    height: 200px;
+  }
+
+  .enlace-card {
+    min-height: 130px;
+    padding: 1.5rem;
+  }
+
+  .enlace-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logos-interes-grid {
+    gap: 1.5rem;
+  }
+
+  .logo-interes-item {
+    max-width: 150px;
+    height: 100px;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-encabezado {
+    font-size: 1.5rem;
+  }
+  #noticias h2,
+  #sedes h2,
+  #bienvenida h2,
+  #enlaces-rapidos h2,
+  .titulo-enlaces-interes {
+    font-size: 1.5rem;
+  }
+}
